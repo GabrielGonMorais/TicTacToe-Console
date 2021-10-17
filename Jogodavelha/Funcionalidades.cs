@@ -8,6 +8,43 @@ namespace Jogodavelha
 {
     class Funcionalidades
     {
+        public static void LoopJogar()
+        {
+            while (Program.fimdejogo == false)
+            {
+                Funcionalidades.Resetar();
+                Program.fimPartida = false;
+                while (!Program.fimPartida)
+                {
+                    Program.player1.Verificar();
+                    Program.player1.Escolha();
+                    Program.player1.Verificar();
+                    if (Program.fimPartida == true)
+                    {
+                        break;
+                    }
+                    Program.player2.Escolha();
+                    Program.player2.Verificar();
+                }
+
+                Funcionalidades.Resetar();
+                Program.fimPartida = false;
+                while (!Program.fimPartida)
+                {
+                    Program.player2.Verificar();
+                    Program.player2.Escolha();
+                    Program.player2.Verificar();
+                    if (Program.fimPartida == true)
+                    {
+                        break;
+                    }
+                    Program.player1.Escolha();
+                    Program.player1.Verificar();
+                }
+
+            }
+        }
+
         public static void TabuleiroReferencia()
         {
             Console.WriteLine("#######################");
