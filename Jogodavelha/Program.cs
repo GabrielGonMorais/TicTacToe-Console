@@ -4,25 +4,20 @@ namespace Jogodavelha
 {
     class Program
     {
-        public static Jogadores player1 = new Jogador1();
-        public static Jogadores player2 = new Jogador2();
-
-        public static bool fimPartida;
-        public static bool fimdejogo = false;
+        public static Players player1 = new Player1();
+        public static Players player2 = new Player2();        
 
         static void Main()
         {          
-            Console.WriteLine("## Seja bem vindo ao Jogo da velha ##\n\n");
-            Funcionalidades.TabuleiroReferencia();
+            Console.WriteLine("## Welcome to the Tic-Tac-Toe ##\n\n");
+            Functionalities.FixedGameBoard();
+            
+            player1.ChooseTheName();
 
-            Console.WriteLine("\nDigite o nome do primeiro jogador: ");
-            player1.nome = Console.ReadLine();
+            player2.ChooseTheName();
 
-            Console.WriteLine("\nDigite o nome do segundo jogador: ");
-            player2.nome = Console.ReadLine();
             Console.Clear();
-
-            Funcionalidades.LoopJogar();
+            Functionalities.GameLoop();
         }
     }
 }
