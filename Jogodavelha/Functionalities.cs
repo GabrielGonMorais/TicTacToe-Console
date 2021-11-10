@@ -10,7 +10,7 @@ namespace Jogodavelha
     {        
         public static bool EndMatch { get; set; }
         private static bool endGame = false;
-        public static string[] position = new string[9];
+        public static char[] position = new char[9];
 
         public static void GameLoop()
         {
@@ -85,23 +85,24 @@ namespace Jogodavelha
 
         public static void ResetPositions()
         {
-            for (int x = 0; x < position.Length; x++)
+            for (byte verify = 0; verify < position.Length; verify++)
             {
-                position[x] = " ";
+                position[verify] = ' ';
             }
         }
 
         public static void VerifyDraw()
         {
-            int i = 0;
-            for (int x = 0; x < position.Length; x++)
+            byte emptyPositions = 0;
+
+            for (byte verify = 0; verify < position.Length; verify++)
             {
-                if (position[x] == " ")
+                if (position[verify] == ' ')
                 {
-                    i++;
+                    emptyPositions++;
                 }
             }
-            if (i == 0 && EndMatch == false)
+            if (emptyPositions == 0 && EndMatch == false)
             {
                 Score();
                 GameBoard();
